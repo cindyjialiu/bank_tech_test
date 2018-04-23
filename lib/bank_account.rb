@@ -1,12 +1,13 @@
 require 'date'
+require_relative 'transaction'
 
 class BankAccount
   attr_accessor :balance, :date, :history
 
-  def initialize
+  def initialize(transactions = Transaction.new)
     @amount = 0
     @balance = 0
-    @history = []
+    @transactions = transactions
   end
 
   def deposit(amount, date)
@@ -15,7 +16,7 @@ class BankAccount
       amount: amount,
       balance: @balance += amount
     }
-    @history << transaction
+    @transactions.add_transaction(transaction)
   end
 
   def withdrawal(amount, date)
@@ -25,6 +26,6 @@ class BankAccount
       amount: -amount,
       balance: @balance -= amount
     }
-    @history << transaction
+    @transactions.add_transaction(transaction)
   end
 end
