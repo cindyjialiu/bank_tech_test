@@ -21,10 +21,19 @@ describe BankAccount do
   end
 
   describe '#withdrawal' do
-    it 'returns the new balance 0' do
-      bank_account = BankAccount.new(1000)
-      bank_account.withdrawal(1000)
-      expect(bank_account.balance).to eq(0)
+    context 'when the original balance is >= withdrawal amount' do
+      it 'returns the new balance 0' do
+        bank_account = BankAccount.new(1000)
+        bank_account.withdrawal(1000)
+        expect(bank_account.balance).to eq(0)
+      end
+    end
+
+    context 'when the original balance is 0' do
+      it 'should raise an error' do
+        bank_account = BankAccount.new
+        expect { bank_account.withdrawal(1000) }.to raise_error('Sorry, your balance is too low.')
+      end
     end
   end
 
