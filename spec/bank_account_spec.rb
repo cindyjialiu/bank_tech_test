@@ -36,8 +36,14 @@ describe BankAccount do
     context 'when the original balance is >= withdrawal amount' do
       it 'returns the new balance 0' do
         bank_account = BankAccount.new(1000)
-        bank_account.withdrawal(1000)
-        expect(bank_account.balance).to eq(0)
+        expect(bank_account.withdrawal(500)).to eq({
+           bank_account.date => {
+             credit: 0,
+             debit: 500.00,
+             balance: 500.00
+            }
+          }
+      )
       end
     end
 

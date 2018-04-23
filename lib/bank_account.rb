@@ -14,7 +14,7 @@ class BankAccount
     {
       @date => {
         credit: amount.to_f,
-        debit: @debit,
+        debit: @debit.to_f,
         balance: (@balance += amount).to_f
       }
     }
@@ -22,7 +22,13 @@ class BankAccount
 
   def withdrawal(amount)
     raise 'Sorry, your balance is too low.' if @balance < amount
-    (@balance -= amount).to_f
+    {
+      @date => {
+        credit: @credit.to_f,
+        debit: amount.to_f,
+        balance: (@balance -= amount).to_f
+      }
+    }
   end
 
   private
