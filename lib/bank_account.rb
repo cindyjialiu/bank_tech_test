@@ -10,6 +10,7 @@ class BankAccount
   end
 
   def withdrawal(amount)
+    raise 'Sorry, your balance is too low.' if @balance < amount
     (@balance -= amount).to_f
   end
 
