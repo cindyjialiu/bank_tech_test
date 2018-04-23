@@ -9,12 +9,14 @@ class BankAccount
     @history = []
   end
 
-  def deposit(amount)
-    @history << {
-      date: @date,
-      credit: amount.to_f,
-      balance: (@balance += amount).to_f
+  def deposit(date, amount, balance)
+    new_balance = balance + amount
+    transaction = {
+      date: date,
+      amount: amount,
+      balance: new_balance
     }
+    [new_balance, transaction]
   end
 
   def withdrawal(amount)
@@ -27,8 +29,8 @@ class BankAccount
   end
 
   private
-  def get_date
-    DateTime.now.strftime("%d/%m/%Y")
+  def date
+    DateTime.now
   end
 
 end
