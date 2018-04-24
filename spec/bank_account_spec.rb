@@ -10,7 +10,7 @@ describe BankAccount do
         expected = [
           {
             date: date,
-            amount: 1000,
+            credit: 1000,
             balance: 1000
           }
         ]
@@ -26,7 +26,7 @@ describe BankAccount do
         expected = [
           {
             date: date,
-            amount: -500,
+            debit: 500,
             balance: 500
           }
         ]

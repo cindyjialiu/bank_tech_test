@@ -1,31 +1,28 @@
 require 'date'
 require_relative 'transaction'
+require_relative 'statement'
 
 class BankAccount
-  attr_accessor :balance, :date, :history
+  attr_accessor :balance, :date, :transactions
 
-  def initialize(transactions = Transaction.new)
-    @amount = 0
+  def initialize
     @balance = 0
-    @transactions = transactions
   end
 
   def deposit(amount, date)
     transaction = {
       date: date,
-      amount: amount,
+      credit: amount,
       balance: @balance += amount
     }
-    @transactions.add_transaction(transaction)
   end
 
   def withdrawal(amount, date)
     raise 'Sorry, your balance is too low.' if @balance < amount
     transaction = {
       date: date,
-      amount: -amount,
+      debit: amount,
       balance: @balance -= amount
     }
-    @transactions.add_transaction(transaction)
   end
 end
