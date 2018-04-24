@@ -11,7 +11,7 @@ describe Printer do
     it 'prints the bank statement' do
       expect { printer.print(statement) }.to output(statement + "\n").to_stdout
     end
-    it 'prints "hello"' do
+    it 'does not print the statement' do
       expect { printer.print(statement) }.to_not output('hello').to_stdout
     end
   end

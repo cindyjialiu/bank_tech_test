@@ -1,5 +1,4 @@
 class Statement
-
   def get_statement(transactions)
     header = 'date || credit || debit || balance'
     details = transactions.reverse.map { |transaction| get_data(transaction) }

@@ -1,6 +1,4 @@
 require 'date'
-require_relative 'transaction'
-require_relative 'statement'
 
 class BankAccount
   attr_accessor :balance, :date
