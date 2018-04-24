@@ -1,18 +1,19 @@
 class Statement
   def get_statement(transactions)
-    header = 'date || credit || debit || balance'
+    header = %w[date credit debit balance]
     details = transactions.reverse.map { |transaction| get_data(transaction) }
-    header + "\n" + details.join("\n")
+    details.unshift(header)
   end
 
   def get_data(transaction)
     date = date_formatter(transaction[:date])
     amount = transaction[:amount]
     balance = amount_formatter(transaction[:balance])
-    if amount < 0
-      "#{date} || || #{amount_formatter(amount)} || #{balance}"
+    formatted_amount = amount_formatter(amount)
+    if amount > 0
+      [date, formatted_amount, '', balance]
     else
-      "#{date} || #{amount_formatter(amount)} || || #{balance}"
+      [date, '', formatted_amount, balance]
     end
   end
 

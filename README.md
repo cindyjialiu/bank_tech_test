@@ -5,30 +5,37 @@ This is the first tech test at Makers Academy
 
 ## Specification
 
-### Requirements
-
 * You should be able to interact with your code via a REPL like IRB or the JavaScript console.  (You don't need to implement a command line interface that takes input from STDIN.)
 * Deposits, withdrawal.
 * Account statement (date, amount, balance) printing.
 * Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
-### Acceptance criteria
-
-**Given** a client makes a deposit of 1000 on 10-01-2012  
-**And** a deposit of 2000 on 13-01-2012  
-**And** a withdrawal of 500 on 14-01-2012  
-**When** she prints her bank statement  
-**Then** she would see
+### User Stories
 
 ```
-date || credit || debit || balance
-14/01/2012 || || 500.00 || 2500.00
-13/01/2012 || 2000.00 || || 3000.00
-10/01/2012 || 1000.00 || || 1000.00
+As a user, I'd like to have a bank account, so that I can put my savings in it.
 ```
+```
+As a user, I'd like to use my bank account regularly , so that I can put deposit when I need to.
+```
+```
+As a user, I'd like to use my bank account regularly , so that I can withdraw money when I need to.
+```
+```
+As a user, I'd like to print my bank statement, so that I can see my transaction history and the dates.
+```
+## Approach
+
+
 ## Installation
+* Clone the repo with
+* Run bundle install
+* Run rspec for the tests
 
 ## Technologies Used
-* Ruby
+* ruby ~2.5.0
+
 ## Testing
+* RSpec
+
 ## Contributing Members
