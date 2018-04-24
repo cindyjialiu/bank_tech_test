@@ -7,13 +7,11 @@ describe BankAccount do
   describe '#deposit' do
     context 'when the original balance is 0' do
       it 'returns the new balance 1000.' do
-        expected = [
-          {
-            date: date,
-            credit: 1000,
-            balance: 1000
-          }
-        ]
+        expected = {
+          date: date,
+          amount: 1000,
+          balance: 1000
+        }
         expect(bank_account.deposit(1000, date)).to eq expected
       end
     end
@@ -23,13 +21,11 @@ describe BankAccount do
     context 'when the original balance is >= withdrawal amount' do
       it 'returns the new balance 0' do
         bank_account.balance = 1000
-        expected = [
-          {
-            date: date,
-            debit: 500,
-            balance: 500
-          }
-        ]
+        expected = {
+          date: date,
+          amount: -500,
+          balance: 500
+        }
         expect(bank_account.withdrawal(500, date)).to eq expected
       end
     end
