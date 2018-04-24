@@ -20,7 +20,7 @@ class Statement
   private
 
   def amount_formatter(amount)
-    format('%.2f', amount)
+    format('%.2f', amount.abs)
   end
 
   def date_formatter(date)
