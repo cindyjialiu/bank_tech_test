@@ -1,38 +1,41 @@
-# Bank_tech_test
-## Overviews
+# Bank tech test
+## Overview
 
 This is the first tech test at Makers Academy of week 10.
 
-## Specification
+## Specification (provided)
 
 * You should be able to interact with your code via a REPL like IRB or the JavaScript console.  (You don't need to implement a command line interface that takes input from STDIN.)
 * Deposits, withdrawal.
 * Account statement (date, amount, balance) printing.
 * Data can be kept in memory (it doesn't need to be stored to a database or anything).
 
-### User Stories
+### My User Stories
 
 ```
-As a user,
-I'd like to have a bank account, so that I can put my savings in it.
+As a customer,
+I'd like to open a bank account, so that I can keep track of my money.
 ```
 ```
-As a user,
-I'd like to use my bank account regularly , so that I can put deposit when I need to.
+As a customer,
+I'd like to use my bank account regularly , so that I can put deposit in when I need to.
 ```
 ```
-As a user,
+As a customer,
 I'd like to use my bank account regularly , so that I can withdraw money when I need to.
 ```
 ```
-As a user,
-I'd like to print my bank statement, so that I can see my transaction history and the dates.
+As a customer,
+I'd like to print my bank statement, so that I can see how much money I transferred and when.
 ```
 ## Approach
 * Followed TDD, OOP process
 * I started with two main classes BankAccount and Transaction, BankAccount handles the deposit and withdrawal methods, Transaction is responsible for adding and storing all the transactions.
 * Statement class is converting the transactions to a statement which presents as a 2D arrays and the Printer will print it out as a nice format.
 * All the classes are completely independent so that I can test everything easily without any mocks.
+
+## Domain Model
+![bank_tech_test_dia](https://user-images.githubusercontent.com/33848023/39277752-52684f4a-48e7-11e8-8441-7493571dd754.png)
 
 ## Installation
 * Clone the repo with https://github.com/cindyjialiu/bank_tech_test.git
@@ -98,8 +101,6 @@ date       || credit     || debit      || balance
 => nil
 
 ```
-
-
 ## Technologies Used
 * ruby ~2.5.0
 
