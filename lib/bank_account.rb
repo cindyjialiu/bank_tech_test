@@ -1,5 +1,3 @@
-require 'date'
-
 class BankAccount
   attr_accessor :balance, :date
 

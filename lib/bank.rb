@@ -7,9 +7,9 @@ account = BankAccount.new
 statement = Statement.new
 transactions = Transaction.new
 printer = Printer.new
-t1 = account.deposit(1500, DateTime.now)
+t1 = account.deposit(1500, Time.now)
 transactions.add_transaction(t1)
-t2 = account.withdrawal(500, DateTime.now)
+t2 = account.withdrawal(500, Time.now)
 transactions.add_transaction(t2)
 transaction_history = transactions.history
 statement_body = statement.get_statement(transaction_history)
