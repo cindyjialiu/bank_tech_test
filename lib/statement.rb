@@ -1,8 +1,13 @@
 class Statement
   def get_statement(transactions)
+    transactions.reverse.map { |transaction| get_data(transaction) }
+  end
+
+  def formatted_statement(statement)
     header = %w[date credit debit balance]
-    details = transactions.reverse.map { |transaction| get_data(transaction) }
-    details.unshift(header)
+    statement.unshift(header).map do |transaction|
+      transaction.map { |str| str.ljust(10) }
+    end
   end
 
   def get_data(transaction)
@@ -24,6 +29,6 @@ class Statement
   end
 
   def date_formatter(date)
-    date.strftime("%d/%m/%Y")
+    date.strftime('%d/%m/%Y')
   end
 end

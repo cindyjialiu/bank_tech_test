@@ -38,19 +38,27 @@ describe Statement do
           date: date,
           amount: 1000,
           balance: 2000
-        },
-        {
-          date: date,
-          amount: 2000,
-          balance: 1000
         }
       ]
-      title = %w[date credit debit balance]
       t1 = ['23/04/2018', '', '500.00', '1500.00']
       t2 = ['23/04/2018', '1000.00', '', '2000.00']
-      t3 = ['23/04/2018', '2000.00', '', '1000.00']
-      expected = [title, t3, t2, t1]
+      expected = [t2, t1]
       expect(statement.get_statement(transactions)).to eq expected
+    end
+  end
+
+  describe '#formatted_statement' do
+    it 'returns the formatted statement' do
+      statement_body = [
+        ['23/04/2018', '', '500.00', '1500.00'],
+        ['23/04/2018', '1000.00', '', '2000.00']
+      ]
+      expected = [
+        ['date      ', 'credit    ', 'debit     ', 'balance   '],
+        ['23/04/2018', '          ', '500.00    ', '1500.00   '],
+        ['23/04/2018', '1000.00   ', '          ', '2000.00   ']
+      ]
+      expect(statement.formatted_statement(statement_body)).to eq expected
     end
   end
 end
