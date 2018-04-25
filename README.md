@@ -101,6 +101,7 @@ date       || credit     || debit      || balance
 => nil
 
 ```
+<img width="459" alt="screen shot 2018-04-26 at 00 26 08" src="https://user-images.githubusercontent.com/33848023/39277964-83ceab14-48e8-11e8-92a8-a36f361cfa51.png">
 ## Technologies Used
 * ruby ~2.5.0
 
